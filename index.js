@@ -5,6 +5,7 @@
 */
 
 // import the JSON data about the crowd funded games from the games.js file
+import games from './games.js';
 import GAMES_DATA from './games.js';
 
 // create a list of objects to store the data about the games using JSON.parse
@@ -58,12 +59,11 @@ addGamesToPage(GAMES_JSON);
 // grab the contributions card element
 const contributionsCard = document.getElementById("num-contributions");
 
-const totalContribution = GAMES_JSON.reduce ( (acc, game) => { 
+let totalBackers = GAMES_JSON.reduce ( (acc, game) => { 
     return acc + game.backers;
 }, 0);
 
-contributionsCard.innerText = totalContribution.toLocaleString(('en-US'));
-
+contributionsCard.innerHTML =  `<p>${totalBackers.toLocaleString(('en-US'))}</p>`;
 
 
 // use reduce() to count the number of total contributions by summing the backers
@@ -75,11 +75,22 @@ contributionsCard.innerText = totalContribution.toLocaleString(('en-US'));
 // grab the amount raised card, then use reduce() to find the total amount raised
 const raisedCard = document.getElementById("total-raised");
 
-// set inner HTML using template literal
+let totalRaisedAmount = GAMES_JSON.reduce ( (acc, game) => { 
+    return acc + game.pledged;
+}, 0);
 
+
+// set inner HTML using template literal
+raisedCard.innerHTML = `<p>${totalRaisedAmount.toLocaleString(('en-US'))}</p>`;
 
 // grab number of games card and set its inner HTML
 const gamesCard = document.getElementById("num-games");
+
+let numGames = GAMES_JSON.reduce ( (sum, game) => {
+    return sum + 1;
+},0);
+
+gamesCard.innerHTML = `<p> ${numGames.toLocaleString('en-US')} </p>`;
 
 
 /*************************************************************************************
@@ -91,29 +102,32 @@ const gamesCard = document.getElementById("num-games");
 // show only games that do not yet have enough funding
 function filterUnfundedOnly() {
     deleteChildElements(gamesContainer);
-
     // use filter() to get a list of games that have not yet met their goal
-
-
+    let listOfUnfunded = GAMES_JSON.filter( (game) => {
+        return game.pledged < game.goal;
+    })
     // use the function we previously created to add the unfunded games to the DOM
+    addGamesToPage(listOfUnfunded);
+    console.log (`unfunded number = ${listOfUnfunded.length}`);
 
 }
 
 // show only games that are fully funded
 function filterFundedOnly() {
     deleteChildElements(gamesContainer);
-
     // use filter() to get a list of games that have met or exceeded their goal
-
-
+    let listOfFunded = GAMES_JSON.filter( (game) => {
+        return game.pledged >= game.goal;
+    })
     // use the function we previously created to add unfunded games to the DOM
-
+    addGamesToPage(listOfFunded)
+    console.log (`funded number = ${listOfFunded.length}`);
 }
 
 // show all games
 function showAllGames() {
     deleteChildElements(gamesContainer);
-
+    addGamesToPage(GAMES_JSON);
     // add all games from the JSON data to the DOM
 
 }
@@ -122,6 +136,11 @@ function showAllGames() {
 const unfundedBtn = document.getElementById("unfunded-btn");
 const fundedBtn = document.getElementById("funded-btn");
 const allBtn = document.getElementById("all-btn");
+
+unfundedBtn.addEventListener("click",filterUnfundedOnly());
+fundedBtn.addEventListener("click",filterFundedOnly());
+allBtn.addEventListener("click",showAllGames());
+
 
 // add event listeners with the correct functions to each button
 
