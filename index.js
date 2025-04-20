@@ -58,6 +58,11 @@ addGamesToPage(GAMES_JSON);
 // grab the contributions card element
 const contributionsCard = document.getElementById("num-contributions");
 
+const totalContribution = GAMES_JSON.reduce ( (acc, game) => { 
+    return acc + game.pledged;
+}, 0);
+
+
 // use reduce() to count the number of total contributions by summing the backers
 
 
