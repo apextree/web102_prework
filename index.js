@@ -13,8 +13,10 @@ const GAMES_JSON = JSON.parse(GAMES_DATA)
 
 // remove all child elements from a parent element in the DOM
 function deleteChildElements(parent) {
+    console.log("delete child function accessed \n")
     while (parent.firstChild) {
         parent.removeChild(parent.firstChild);
+        console.log ("while loop looping \n")
     }
 }
 
@@ -101,7 +103,9 @@ gamesCard.innerHTML = `<p> ${numGames.toLocaleString('en-US')} </p>`;
 
 // show only games that do not yet have enough funding
 function filterUnfundedOnly() {
+    console.log("UNfunded button clicked")
     deleteChildElements(gamesContainer);
+    console.log (gamesContainer);
     // use filter() to get a list of games that have not yet met their goal
     let listOfUnfunded = GAMES_JSON.filter( (game) => {
         return game.pledged < game.goal;
@@ -114,6 +118,7 @@ function filterUnfundedOnly() {
 
 // show only games that are fully funded
 function filterFundedOnly() {
+    console.log("funded button clicked");
     deleteChildElements(gamesContainer);
     // use filter() to get a list of games that have met or exceeded their goal
     let listOfFunded = GAMES_JSON.filter( (game) => {
@@ -122,6 +127,7 @@ function filterFundedOnly() {
     // use the function we previously created to add unfunded games to the DOM
     addGamesToPage(listOfFunded)
     console.log (`funded number = ${listOfFunded.length}`);
+    console.log (listOfFunded);
 }
 
 // show all games
@@ -137,12 +143,13 @@ const unfundedBtn = document.getElementById("unfunded-btn");
 const fundedBtn = document.getElementById("funded-btn");
 const allBtn = document.getElementById("all-btn");
 
-unfundedBtn.addEventListener("click",filterUnfundedOnly());
-fundedBtn.addEventListener("click",filterFundedOnly());
-allBtn.addEventListener("click",showAllGames());
-
-
 // add event listeners with the correct functions to each button
+unfundedBtn.addEventListener("click",filterUnfundedOnly);
+fundedBtn.addEventListener("click",filterFundedOnly);
+allBtn.addEventListener("click",showAllGames);
+
+
+
 
 
 /*************************************************************************************
