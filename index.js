@@ -59,10 +59,10 @@ addGamesToPage(GAMES_JSON);
 const contributionsCard = document.getElementById("num-contributions");
 
 const totalContribution = GAMES_JSON.reduce ( (acc, game) => { 
-    return acc + game.pledged;
+    return acc + game.backers;
 }, 0);
 
-contributionsCard.appendChild(totalContribution);
+contributionsCard.innerText = totalContribution.toLocaleString(('en-US'));
 
 
 
