@@ -62,6 +62,9 @@ const totalContribution = GAMES_JSON.reduce ( (acc, game) => {
     return acc + game.pledged;
 }, 0);
 
+contributionsCard.appendChild(totalContribution);
+
+
 
 // use reduce() to count the number of total contributions by summing the backers
 
