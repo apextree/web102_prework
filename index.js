@@ -30,16 +30,18 @@ const gamesContainer = document.getElementById("games-container");
 
 //create a function that adds all data from the games array to the page
 function addGamesToPage(games) {
+
     for (let i = 0; i < games.length; i++){
         let newDiv = document.createElement("div");
         newDiv.classList.add("game-card");
-        
         newDiv.innerHTML = `
         <img src="${games[i].img}" class="game-img">
         <h3>${games[i].name}</h3>
         <p>${games[i].description}</p>
-        `;
-
+        <p>$${games[i].pledged.toLocaleString('en-US')} pledged by ${games[i].backers} generous backers!</p>
+        <p>Goal: $${games[i].goal.toLocaleString('en-US')}</p>
+        <progress id="progress-bar" value="${(games[i].pledged)}" max="${games[i].goal}"></progress>
+        <p><i>${games[i].pledged >= games[i].goal ? "Goal Met!🎊" : `${(games[i].pledged/games[i].goal*100).toPrecision(2)}% of the way there!`}</i></p>`
         gamesContainer.appendChild(newDiv);
     }
     
@@ -206,10 +208,32 @@ let [firstGame, secondGame, ...others] = sortedGames;
 
 // create a new element to hold the name of the top pledge game, then append it to the correct element
 let firstGameDisplayer = document.createElement("p");
-firstGameDisplayer.innerText = firstGame.name;
+firstGameDisplayer.innerText = `${firstGame.name} \n Total Raised: $${firstGame.pledged.toLocaleString('en-US')}`;
 firstGameContainer.appendChild(firstGameDisplayer);
 
 // do the same for the runner up item
 let secondGameDisplayer = document.createElement("p");
-secondGameDisplayer.innerText = secondGame.name;
+secondGameDisplayer.innerText = `${secondGame.name} \n Total Raised: $${secondGame.pledged.toLocaleString('en-US')}`;
 secondGameContainer.appendChild(secondGameDisplayer)
+
+
+//********************************************************************************************************************************************
+const searchInput = document.getElementById('search-input');
+
+searchInput.addEventListener('input', function() {
+
+    const searchTerm = this.value.toLowerCase();
+
+    const gameElements = document.querySelectorAll('.game-card'); 
+
+    gameElements.forEach(game => {
+        const gameName = game.querySelector('h3').textContent.toLowerCase();     
+        game.style.display = gameName.includes(searchTerm)? '' : 'none';
+    });
+
+});
+
+const alphabeticalOrderBtn = document.getElementById("AZ-sort-btn");
+const goalPercentenceAscendingBtn = document.getElementById("backers-sort-ascending-btn");
+const goalPercentenceDescindingBtn = document.getElementById("backers-sort-decending-btn");
+

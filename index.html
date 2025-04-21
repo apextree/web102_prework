@@ -50,11 +50,33 @@
     <!-- list of games funded by Sea Monster -->
     <h2>Our Games</h2>
     <p>Check out each of our games below!</p>
+    
+    
     <div id="button-container">
-        <button id="unfunded-btn">Show Unfunded Only</button>
-        <button id="funded-btn">Show Funded Only</button>
-        <button id="all-btn">Show All Games</button>
+        <div id = "filter-btns">
+            <span id="button-label">Filter: <span>
+            <button id="unfunded-btn">Show Unfunded Only</button>
+            <button id="funded-btn">Show Funded Only</button>
+            <button id="all-btn">Show All Games</button>
+        </div>
+
+        <div id="search-container">
+            <input type="text" id="search-input" placeholder="Search games...">
+        </div>
+
+        <div id = "sort-btns">
+            <span id="button-label">Sort By: </span>
+            <button id="AZ-sort-btn">A-Z</button>
+            <button id="goal-met-sort-ascending-btn">Backers &#8593</button>
+            <button id="goal-met-sort-decending-btn">Backers &#8595</button>
+        </div>
+
+        
+
+
     </div>
+
+    
     <div id="games-container">
 
     </div>
