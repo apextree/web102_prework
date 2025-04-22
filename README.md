@@ -30,7 +30,8 @@ The following **optional** features are implemented:
 
 Here's a walkthrough of implemented features:
 
-<img src='https://i.imgur.com/3DP20SR.gif' title='Video Walkthrough' width='100px' alt='Video Walkthrough' />
+<!-- <img src='https://i.imgur.com/3DP20SR.gif' title='Video Walkthrough' width='100px' alt='Video Walkthrough' /> -->
+<blockquote class="imgur-embed-pub" lang="en" data-id="a/JL9NQQa"><a href="//imgur.com/JL9NQQa">Anubhav(apextree) web102_prework Walkthrough Video</a></blockquote><script async src="//s.imgur.com/min/embed.js" charset="utf-8"></script>
 
 <!-- Replace this with whatever GIF tool you used! -->
 GIF created with OBS, Avidemux, Online Video Compressor, Adobe Mp4 to GIF tool. 
