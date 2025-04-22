@@ -1,23 +1,30 @@
-# WEB102 Prework - *Name of App Here*
+# WEB102 Prework - **Fund Wave**
 
-Submitted by: **Your Name Here**
+Submitted by: **Anubhav Dhungana**
 
-**Name of your app** is a website for the company Sea Monster Crowdfunding that displays information about the games they have funded.
+**Fund Wave** is a website for the company Sea Monster Crowdfunding that displays information about the games they have funded.
 
-Time spent: **X** hours spent in total
+Time spent: **10** hours spent in total
 
 ## Required Features
 
 The following **required** functionality is completed:
 
-* [ ] The introduction section explains the background of the company and how many games remain unfunded.
-* [ ] The Stats section includes information about the total contributions and dollars raised as well as the top two most funded games.
-* [ ] The Our Games section initially displays all games funded by Sea Monster Crowdfunding
-* [ ] The Our Games section has three buttons that allow the user to display only unfunded games, only funded games, or all games.
+* [x] The introduction section explains the background of the company and how many games remain unfunded.
+* [x] The Stats section includes information about the total contributions and dollars raised as well as the top two most funded games.
+* [x] The Our Games section initially displays all games funded by Sea Monster Crowdfunding
+* [x] The Our Games section has three buttons that allow the user to display only unfunded games, only funded games, or all games.
 
 The following **optional** features are implemented:
 
-* [ ] List anything else that you can get done to improve the app functionality!
+* [x] Dynamic search bar that searches through the game collection as you type strings. 
+* [x] Added goal met % (shows what percent or the total goal has been met till now), and a progress bar to visually show that.
+* [x] Sorting Buttons; to sort alphabetically, in ascending order of goal percentage met, and in descending order of goal percentage met.
+* [x] Unique messages in every game card to show how much has been pledged and by how many backers for each game.
+* [x] Background color change to match ocean aesthetics. 
+* [x] Colors of game cards and button changed to match ocean aesthetics. 
+* [x] Animation added to button to make them pop up like bubbles, to math the ocean motifs. 
+* [x] Other small aesthetic changes made to game cards, buttons, stat cards, etc. for cohesion.
 
 ## Video Walkthrough
 
@@ -33,12 +40,11 @@ GIF created with ...
 [peek](https://github.com/phw/peek) for Linux. -->
 
 ## Notes
-
-Describe any challenges encountered while building the app.
+Working with Flex containers in CSS was somewhat challenging and required extra attention to make sure everything looked good even when the viewport changed in size and aspect ratio. Another challenge was trying to figure out how best to create the frontend so that it looks aesthetically pleasing, matched the ocean theme and also did not look too extra as to take away from the core functionality of the webpage itself. My code editor's visual theme's lack of adequate syntax highlighting prevented me from noticing a typo in a function name in one of the earlier challenges. 
 
 ## License
 
-    Copyright [yyyy] [name of copyright owner]
+    Copyright 2025 Anubhav Dhungana
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
