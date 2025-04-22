@@ -175,7 +175,7 @@ let numUnfundedGames = GAMES_JSON.reduce( (acc, game) => {
 // create a string that explains the number of unfunded games using the ternary operator
 
 const displayStr = 
-    `A total of ${totalRaisedAmount.toLocaleString('en-US')} has been raised for ${GAMES_JSON.length} games.`+ 
+    `A total of ${totalRaisedAmount.toLocaleString('en-US')} has been raised for ${GAMES_JSON.length} games. `+ 
     `${numUnfundedGames !== 0? `Currently, ${numUnfundedGames} ${numUnfundedGames === 1 ? 
     "game remains unfunded" : 
     "games remain unfunded"}. We need your help funding these amazing games!` : 
@@ -234,6 +234,35 @@ searchInput.addEventListener('input', function() {
 });
 
 const alphabeticalOrderBtn = document.getElementById("AZ-sort-btn");
-const goalPercentenceAscendingBtn = document.getElementById("backers-sort-ascending-btn");
-const goalPercentenceDescindingBtn = document.getElementById("backers-sort-decending-btn");
+const goalPercentAscendingBtn = document.getElementById("goal-met-sort-ascending-btn");
+const goalPercentDescindingBtn = document.getElementById("goal-met-sort-decending-btn");
 
+
+function sortAlphabetically(){
+    deleteChildElements(gamesContainer);
+    const listInAlphabeticalOrder = GAMES_JSON.sort((game1, game2)=>{
+        return ( (game1.name < game2.name) ? -1 : (game1.name > game2.name ? 1 : 0) );
+    })
+    addGamesToPage(listInAlphabeticalOrder);
+
+}
+
+function sortAscendingGoalPercent(){
+    deleteChildElements(gamesContainer);
+    const listSortAscendingGoalPercent = GAMES_JSON.sort ((game1, game2) => {
+        return ( ((game1.pledged/game1.goal) < (game2.pledged/game2.goal)) ? -1 : ((game1.pledged/game1.goal) > (game2.pledged/game2.goal) ? 1 : 0) );
+    });
+    addGamesToPage (listSortAscendingGoalPercent);w
+}
+
+function sortDescendingGoalPercent(){
+    deleteChildElements(gamesContainer);
+    const listSortDescendingGoalPercent = GAMES_JSON.sort ((game1, game2) => {
+        return ( ((game1.pledged/game1.goal) > (game2.pledged/game2.goal)) ? -1 : ((game1.pledged/game1.goal) < (game2.pledged/game2.goal) ? 1 : 0) );
+    });
+    addGamesToPage (listSortDescendingGoalPercent);
+}
+
+alphabeticalOrderBtn.addEventListener("click", sortAlphabetically);
+goalPercentAscendingBtn.addEventListener("click", sortAscendingGoalPercent);
+goalPercentDescindingBtn.addEventListener("click", sortDescendingGoalPercent);

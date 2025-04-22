@@ -12,8 +12,10 @@ body {
 }
 
 .header {
+    align-items: center;
+    text-align: center;
     display: flex;
-    background-color: lightblue;
+    background-color: #CAC2BD;
     padding: 1%;
     align-items: center;
     margin-left: -10px;
@@ -82,7 +84,8 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    width: 98%;
+    min-width: 0;
+    flex-wrap: wrap;
     padding: 0.5em 0;
 
 }
@@ -91,6 +94,7 @@ body {
     display: flex;
     align-items: center;
     white-space: nowrap;
+    margin: 0.5em 0.5em;
 }
   
 #filter-btns {
