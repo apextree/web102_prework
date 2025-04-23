@@ -30,7 +30,7 @@ The following **optional** features are implemented:
 
 Here's a walkthrough of implemented features:
 
-<img src='https://i.imgur.com/3DP20SR.gif' title='Video Walkthrough' width='100px' alt='Video Walkthrough' />
+
 
 <!-- Replace this with whatever GIF tool you used! -->
 GIF created with OBS, Avidemux, Online Video Compressor, Adobe Mp4 to GIF tool. 
