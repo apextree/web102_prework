@@ -30,6 +30,7 @@ The following **optional** features are implemented:
 
 Here's a walkthrough of implemented features:
 
+![pre-work-walk-through-compressed](https://github.com/user-attachments/assets/4d225248-e570-4e1e-9ab3-d61c597cf01e)
 
 
 <!-- Replace this with whatever GIF tool you used! -->
