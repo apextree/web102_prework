@@ -41,6 +41,8 @@ GIF created with OBS, Avidemux, Online Video Compressor, Adobe Mp4 to GIF tool.
 [peek](https://github.com/phw/peek) for Linux. -->
 
 ## Notes
+Figuring out how to add the walkthrough GIF to the readme was a significant challenge. Uploading a large file to Imgur was possible, however, it did not show up on the github page when looking the readme. Because I wanted the GIF to show up in the readme itself, I uploaded it to Github and used the github link, which finally works. Compressing the GIF to be under the needed size (10 MB) was challenging.
+
 Working with Flex containers in CSS was somewhat challenging and required extra attention to make sure everything looked good even when the viewport changed in size and aspect ratio. Another challenge was trying to figure out how best to create the frontend so that it looks aesthetically pleasing, matched the ocean theme and also did not look too extra as to take away from the core functionality of the webpage itself. My code editor's visual theme's lack of adequate syntax highlighting prevented me from noticing a typo in a function name in one of the earlier challenges. 
 
 ## License
